@@ -6,6 +6,6 @@ import (
 	"testing"
 )
 
-func TestWriter(t *testing.T) {
+func TestGen(t *testing.T) {
 
 }

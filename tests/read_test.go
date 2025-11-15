@@ -6,6 +6,6 @@ import (
 	"testing"
 )
 
-func TestReader(t *testing.T) {
+func TestRead(t *testing.T) {
 
 }

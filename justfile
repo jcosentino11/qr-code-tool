@@ -1,11 +1,15 @@
 default:
     @just --list
 
-build:
-    go build -o bin/app .
+qr-read:
+    go run ./cmd/read
 
-run:
-    go run .
+qr-gen:
+    go run ./cmd/gen
+
+build:
+    go build -o bin/qr-read ./cmd/read
+    go build -o bin/qr-gen ./cmd/gen
 
 test:
     go test -v -coverpkg=. -coverprofile=coverage.out ./...
@@ -24,9 +28,9 @@ fmt:
 vet:
     go vet ./...
 
-check: fmt vet test
+check: fmt vet test integration-test
 
 clean:
     rm -rf bin/
-    rm -f coverage.out coverage.html benchmark.out
+    rm -f coverage*.out coverage*.html benchmark*.out
     go clean
