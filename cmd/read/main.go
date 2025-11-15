@@ -1,7 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+
+	"josephcosentino.me/qr-code-tool/internal/cli"
+)
 
 func main() {
-	fmt.Printf("read\n")
+	if err := cli.CmdRead(os.Args, os.Stdout, os.Stderr); err != nil {
+		fmt.Fprintf(os.Stderr, "Error: %v\n", err)
+		os.Exit(1)
+	}
 }

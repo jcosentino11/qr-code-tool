@@ -12,11 +12,11 @@ build:
     go build -o bin/qr-gen ./cmd/gen
 
 test:
-    go test -v -coverpkg=. -coverprofile=coverage.out ./...
+    go test -v -coverpkg=./internal -coverprofile=coverage.out ./...
     go tool cover -html=coverage.out -o coverage.html
 
 integration-test:                
-    go test -v -tags=integration -coverpkg=. -coverprofile=coverage.integration.out ./tests
+    go test -v -tags=integration -coverpkg=./internal -coverprofile=coverage.integration.out ./tests
     go tool cover -html=coverage.integration.out -o coverage.integration.html
 
 benchmark:                                        
