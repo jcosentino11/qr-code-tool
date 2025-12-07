@@ -3,9 +3,6 @@ package tests
 import (
 	"bytes"
 	"image"
-	_ "image/gif"
-	_ "image/jpeg"
-	_ "image/png"
 	"path/filepath"
 	"strings"
 
@@ -16,6 +13,7 @@ import (
 	"github.com/makiuchi-d/gozxing/qrcode"
 	"josephcosentino.me/qr-code-tool/internal/cli"
 	"josephcosentino.me/qr-code-tool/internal/config"
+	"josephcosentino.me/qr-code-tool/internal/util"
 )
 
 func Encode(t *testing.T, qrCode, qrCodeFile string) (bytes.Buffer, bytes.Buffer) {
@@ -90,15 +88,9 @@ func DecodeWithExternalLib(t *testing.T, path string) string {
 func LoadImage(t *testing.T, path string) image.Image {
 	t.Helper()
 
-	reader, err := os.Open(path)
+	img, err := util.LoadImage(path)
 	if err != nil {
-		t.Fatalf("unable to open image path %s: %v", path, err)
-	}
-	defer reader.Close()
-
-	img, _, err := image.Decode(reader)
-	if err != nil {
-		t.Fatalf("unable to decode image: %v", err)
+		t.Fatalf("unable to load image %s: %v", path, err)
 	}
 
 	return img
