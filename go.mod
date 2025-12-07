@@ -1,4 +1,4 @@
-module josephcosentino.me/qr-code-tool
+module josephcosentino.me/qr-tools
 
 go 1.25.2
 

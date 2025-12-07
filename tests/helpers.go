@@ -11,9 +11,9 @@ import (
 
 	"github.com/makiuchi-d/gozxing"
 	"github.com/makiuchi-d/gozxing/qrcode"
-	"josephcosentino.me/qr-code-tool/internal/cli"
-	"josephcosentino.me/qr-code-tool/internal/config"
-	"josephcosentino.me/qr-code-tool/internal/util"
+	"josephcosentino.me/qr-tools/internal/cli"
+	"josephcosentino.me/qr-tools/internal/config"
+	"josephcosentino.me/qr-tools/internal/util"
 )
 
 func Encode(t *testing.T, qrCode, qrCodeFile string) (bytes.Buffer, bytes.Buffer) {

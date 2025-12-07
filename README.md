@@ -1,1 +1,1 @@
-# qr-code-tool
+# qr-tools

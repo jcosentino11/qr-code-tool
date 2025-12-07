@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"josephcosentino.me/qr-code-tool/internal/encoder"
+	"josephcosentino.me/qr-tools/internal/encoder"
 )
 
 func CmdEncode(args []string, stdout, stderr io.Writer) error {

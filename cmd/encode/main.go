@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"josephcosentino.me/qr-code-tool/internal/cli"
+	"josephcosentino.me/qr-tools/internal/cli"
 )
 
 func main() {
