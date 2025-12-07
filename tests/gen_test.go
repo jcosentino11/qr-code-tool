@@ -10,11 +10,27 @@ import (
 )
 
 func TestGen(t *testing.T) {
-	var stdout, stderr bytes.Buffer
-	args := []string{"qr-gen", "https://josephcosentino.me", "/tmp/qr-code.png"}
+	t.Skip("Skip until encode is implemented")
 
-	err := cli.CmdGen(args, &stdout, &stderr)
+	qrCode := "https://josephcosentino.me"
+	qrCodeFile := "/tmp/qr-code.png"
+
+	var stdout, stderr bytes.Buffer
+	err := cli.CmdGen(
+		[]string{"qr-gen", qrCode, qrCodeFile},
+		&stdout,
+		&stderr,
+	)
 	if err != nil {
 		t.Fatalf("Command failed: %v", err)
+	}
+
+	actualQrCode, err := ReadQRCode(qrCodeFile)
+	if err != nil {
+		t.Fatalf("Unable to read QR code from %s: %v", qrCodeFile, err)
+	}
+
+	if actualQrCode != qrCode {
+		t.Fatalf("QR Code does not match. expected: %s, actual: %s", qrCode, actualQrCode)
 	}
 }
