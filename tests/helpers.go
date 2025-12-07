@@ -7,6 +7,7 @@ import (
 	_ "image/jpeg"
 	_ "image/png"
 	"path/filepath"
+	"strings"
 
 	"os"
 	"testing"
@@ -45,7 +46,12 @@ func Decode(t *testing.T, qrCodeFile string) string {
 		t.Fatalf("Decoding failed: %v", err)
 	}
 
-	return stdout.String()
+	res := stdout.String()
+
+	// trim whitespace added by cli
+	res = strings.TrimSpace(res)
+
+	return res
 }
 
 func DecodeSampleImage(t *testing.T, qrCodeFile string) string {
