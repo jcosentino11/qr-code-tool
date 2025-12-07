@@ -10,4 +10,5 @@
     "go.toolsGopath": "${workspaceFolder}/.go",
     "go.toolsManagement.autoUpdate": true,
     "go.testTags": "integration",
+    "go.buildFlags": ["-tags", "integration"]
 }
